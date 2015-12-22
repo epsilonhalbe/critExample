@@ -1,10 +1,15 @@
 {-# LANGUAGE DeriveFoldable #-}
 module User3237465 where
 
+import Data.Foldable (foldl')
+
 data Tree a = Empty | Node a [Tree a] deriving (Eq, Show, Foldable)
 
 addNums :: Num a => Tree a -> a
 addNums = sum
+
+addFolding :: Num a => Tree a -> a
+addFolding = foldl' (+) 0
 
 myInts :: Tree Int
 myInts =
